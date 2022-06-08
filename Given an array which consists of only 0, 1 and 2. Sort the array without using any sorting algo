@@ -1,0 +1,30 @@
+/*75. Sort Colors //leetcode solutions.
+Example 1:
+Input: nums = [2,0,2,1,1,0]
+Output: [0,0,1,1,2,2]*/
+class Solution {
+public:
+    //we will use algo dutch national flag algo.............
+    void sortColors(vector<int>& nums) {
+        //we will take three VARAIABLES which will help in partitioning our array
+        int low=0,
+         mid=0,
+         high=nums.size()-1;
+        while(mid<=high){
+            //if our number is 0 swap with low.
+            if(nums[mid]==0){
+                swap(nums[mid],nums[low]);
+                mid++;
+                low++;
+            }else if(nums[mid]==1){
+                //if our number is 1 do nothing.
+                mid++;
+            }else{
+                //if our number is 2 swap with high.
+                swap(nums[mid],nums[high]);
+                high--;
+            }
+        }
+        /*very important algo from interview point of view*/
+    }
+};
